@@ -1,1 +1,68 @@
+cat > Environment_Report.txt << 'EOF'
+=====================================================
+Question 1 - Linux Environment Verification
+=====================================================
 
+1. Username and groups associated with account
+------------------------------------------------
+Command: whoami
+Output: sriram
+
+Command: id
+Output: uid=1000(sriram) gid=1000(sriram) groups=1000(sriram)
+
+Command: groups
+Output: sriram
+
+Explanation: whoami confirms the logged-in user is 'sriram'. id shows
+this account has UID 1000 and belongs only to its own personal group
+(sriram), which is standard for a regular (non-root) Linux user.
+
+2. Current shell being used
+------------------------------------------------
+Command: echo $SHELL
+Output: /bin/bash
+
+Explanation: This confirms bash is the default login shell configured
+for this user.
+
+3. Current working directory
+------------------------------------------------
+Command: pwd
+Output: /home/sriram/Question_1
+
+Explanation: pwd confirms the terminal session is currently operating
+inside the Question_1 folder within the home directory.
+
+4. List of files and directories in workspace
+------------------------------------------------
+Command: ls -la
+Output:
+total 8
+drwxr-xr-x 2 sriram sriram 4096 Jul 3 17:20 .
+drwxr-xr-x 3 sriram sriram 4096 Jul 3 17:20 ..
+
+Explanation: At the time this command was run, the Question_1 folder
+was empty (only the current '.' and parent '..' directory entries
+existed), since no other files had been created yet.
+
+5. Network connectivity verification result
+------------------------------------------------
+Command: ping -c 4 google.com
+Output:
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 20.181/20.878/21.469/0.464 ms
+
+Explanation: All 4 ping packets to google.com were successfully
+received with 0% packet loss and an average round-trip time of
+~20.8ms, confirming the machine has a working, low-latency internet
+connection.
+
+=====================================================
+Overall Observations
+=====================================================
+- Verified account: sriram (UID 1000), standard user privileges.
+- Active shell: bash.
+- Working directory and workspace contents confirmed via pwd and ls -la.
+- Network connectivity confirmed healthy via ping (0% packet loss).
+EOF
